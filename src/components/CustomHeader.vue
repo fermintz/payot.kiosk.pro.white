@@ -64,7 +64,7 @@ export default {
 <style lang="scss" scoped>
 .header {
   height: 140px;
-  background: rgba(0, 0, 0, 0.5);
+  background: #0085DE;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -105,7 +105,8 @@ export default {
 
   .right-cont{
     display:flex;
-    align-items: center;;
+    align-items: center;
+    
     .prograss{
       width:240px;
       margin-right:30px;

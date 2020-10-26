@@ -1,7 +1,7 @@
 <template>
   <div id="wrap">
     <Header v-if="!['Login','Examine'].includes($route.name)" />
-    <slot />
+    <router-view />
     <Footer v-if="!['Login','Examine'].includes($route.name)" />
   </div>
 </template>

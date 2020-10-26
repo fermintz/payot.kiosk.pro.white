@@ -12,7 +12,8 @@ import Finish from '../views/finish.vue';
 import CoinChage from '../views/coinChage.vue';
 import CardChage from '../views/cardChage.vue';
 import Examine from '../views/examine.vue';
-
+import innerLayout from '../layout/innerLayout.vue';
+import UserHistory from '../views/userHistory.vue';
 
 Vue.use(VueRouter);
 
@@ -28,55 +29,68 @@ const routes = [
     component: Login,
   },
   {
-    path: '/about',
-    name: 'About',
-    component: About,
-  },
-  {
-    path: '/userLogin',
-    name: 'UserLogin',
-    component: UserLogin,
-  },
-  {
-    path: '/product',
-    name: 'Product',
-    component: Product,
-  },
-  {
-    path: '/eqCoinPush',
-    name: 'EqCoinPush',
-    component: EqCoinPush,
-  },
-  {
-    path: '/order',
-    name: 'Order',
-    component: Order,
-  },
-  {
-    path: '/finish',
-    name: 'Finish',
-    component: Finish,
-  },
-  {
-    path: '/payment',
-    name: 'Payment',
-    component: Payment,
-  },
-  {
-    path: '/coinChage',
-    name: 'CoinChage',
-    component: CoinChage,
-  },
-  {
-    path: '/cardChage',
-    name: 'CardChage',
-    component: CardChage,
-  },
-  {
-    path:'/examine',
-    name:'Examine',
-    component: Examine,
-  },
+    path:'',
+    name:'innerLayout',
+    component: innerLayout,
+    children:[
+      {
+        path: '/about',
+        name: 'About',
+        component: About,
+      },
+      {
+        path: '/userLogin',
+        name: 'UserLogin',
+        component: UserLogin,
+      },
+      {
+        path: '/product',
+        name: 'Product',
+        component: Product,
+      },
+      {
+        path: '/eqCoinPush',
+        name: 'EqCoinPush',
+        component: EqCoinPush,
+      },
+      {
+        path: '/order',
+        name: 'Order',
+        component: Order,
+      },
+      {
+        path: '/finish',
+        name: 'Finish',
+        component: Finish,
+      },
+      {
+        path: '/payment',
+        name: 'Payment',
+        component: Payment,
+      },
+      {
+        path: '/coinChage',
+        name: 'CoinChage',
+        component: CoinChage,
+      },
+      {
+        path: '/cardChage',
+        name: 'CardChage',
+        component: CardChage,
+      },
+      {
+        path:'/examine',
+        name:'Examine',
+        component: Examine,
+      },
+      {
+        path:'/userHistory',
+        name:'userHistory',
+        component: UserHistory,
+      }
+    ]
+  }
+  
 ];
 
 const router = new VueRouter({

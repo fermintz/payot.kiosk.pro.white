@@ -1,14 +1,14 @@
 <template>
   <div class="pageTitle">
     <v-btn
-      width="100px"
-      height="100px"
-      color="rgba(255,255,255,0.2)"
+      width="90px"
+      height="90px"
+      color="#0085de"
       class="back"
       elevation="0"
       @click="backPage"
     >
-      <v-icon size="60" color="#fff">fa-arrow-left</v-icon>
+      <v-icon size="50" color="#fff">fa-arrow-left</v-icon>
     </v-btn>
     <h2>{{ title }}</h2>
   </div>
@@ -37,7 +37,7 @@ export default {
 
   h2 {
     font-size: 42px;
-    color: #fff;
+    color: #292929;
     font-weight: 500;
   }
   .back {

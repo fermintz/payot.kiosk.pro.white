@@ -99,7 +99,8 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    border:3px solid #e2e2e2;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
   }
 
   .finishTitle {

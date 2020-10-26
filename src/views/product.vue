@@ -11,11 +11,11 @@
           dark
           hide-slider
           left
-          background-color="#191919"
+          background-color="#e2e2e2"
         >
-          <v-tab style="color:#fff" active-class="tabTitle">세탁기</v-tab>
-          <v-tab style="color:#fff" active-class="tabTitle">건조기</v-tab>
-          <v-tab style="color:#fff" active-class="tabTitle">기타</v-tab>
+          <v-tab class="tabTitle" active-class="tabTitleActive">세탁기</v-tab>
+          <v-tab class="tabTitle" active-class="tabTitleActive">건조기</v-tab>
+          <v-tab class="tabTitle" active-class="tabTitleActive">기타</v-tab>
         </v-tabs>
       </div>
       <v-tabs-items v-model="tab" light touchless>
@@ -165,24 +165,29 @@ export default {
 }
 .tabHead {
   padding: 0 60px;
-  background: #191919;
+  background: #e2e2e2;
   position: relative;
   height: 118px;
   padding-top: 22px;
 }
 .v-tab {
   width: 280px;
-  background: #292929;
+  background: unset;
   font-size: 36px;
   letter-spacing: 0;
   height: 100px;
   border-radius: 20px 20px 0 0;
 }
-.tabTitle {
+.tabTitle{
+  background:#e2e2e2;
+  overflow:hidden;
+  color:#888 !important;
+}
+.tabTitleActive {
   background: #fff;
   border-radius: 20px 20px 0 0;
   border: 0px;
-  color: #292929 !important;
+  color: #0085de !important;
 }
 .v-tabs-items {
   flex: 1;
@@ -197,6 +202,7 @@ export default {
   overflow: hidden;
   height: 100%;
   padding: 60px;
+  
 
   .listWrap {
     position: relative;
@@ -205,6 +211,7 @@ export default {
     border: 2px solid #d2d2d2;
     border-radius: 10px;
     overflow: hidden;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
 
     .eqList {
       position: absolute;

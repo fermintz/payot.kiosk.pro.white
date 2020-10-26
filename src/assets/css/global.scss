@@ -4,39 +4,28 @@ a{text-decoration: none;font-family:'SCDream';}
 p,ul,li,ol,dl,dt,dd{padding:0px;margin:0px;font-family:'SCDream';list-style: none;}
 h1,h2,h3,h4,h5,h6{font-family:'SCDream';margin:0px;}
 div{font-family:'SCDream'}
+span,strong,label,ul,li,a,b,ol{font-family:'SCDream';font-weight:400}
 
 .v-btn{
   letter-spacing:0;
   font-family:'SCDream';
 }
 
+#app{
+  font-size:24px;
+  font-family:'SCDream' !important;
+  font-weight:400;
+}
+
 #wrap{
   display:flex;
   flex-direction:column;
   justify-content: space-between;
-  background:#0085de url('../img/background.png');
-  
-  font-size:24px;
-  font-family:'SCDream';
-  font-weight:400;
+  background:#fff;
   height:100%;
   max-height:1920px;
-  animation: bgMove 15s ease-in-out infinite;
 
-  @keyframes bgMove {
-    0%{
-      background-size:100%;
-      background-color: #0085de;
-    }
-    50%{
-      background-size:150%;
-      background-color:#0099FF;
-    }
-    100%{
-      background-size:100%;
-      background-color: #0085de;
-    }
-  }
+ 
 
   #container{
     display:flex;
@@ -55,12 +44,17 @@ div{font-family:'SCDream'}
     padding:60px;
   }
 
+  #contents.userHistory{
+    padding-top:0px;
+  }
+
   .inner {
     padding: 0 60px;
   }
 
 }
 
+$defaulColor: #0085DE;
 
 //vuetyfi css 수정
 
@@ -91,4 +85,11 @@ div{font-family:'SCDream'}
     background-size:100%;
     background-color: #292929;
   }
+}
+
+.v-data-table-header{
+  span{font-size:32px;}
+}
+.v-data-table{ 
+  td{ font-size:32px !important;}
 }

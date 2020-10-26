@@ -166,7 +166,6 @@ export default {
   padding:0 60px 60px 60px;
   flex:1;
   width:100%;
-  overflow:hidden;
 }
 
 .black-background{
@@ -188,7 +187,10 @@ export default {
 
     p{
       margin-bottom:0px;
-      span{font-size:64px;margin-right:10px;}
+      span{
+        font-size:64px;
+        margin-right:10px;
+      }
     }
   }
 }
@@ -197,10 +199,10 @@ export default {
 }
 
 .visualTitle{
-  color:#fff;
+  color:#0085DE;
 
   dt{font-size:48px;font-weight:500;word-break: keep-all;}
-  dd{font-size:32px;margin-top:20px;color:rgba(255,255,255,0.7)}
+  dd{font-size:32px;margin-top:20px;color:#888}
 }
 
 .chageBox{
@@ -209,7 +211,8 @@ export default {
   border-radius:10px;
   margin-top:40px;
   overflow:hidden;
-  box-shadow:0 0 30px rgba(0,0,0,0.2);
+  border:3px solid #e2e2e2;
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
   position:relative;
   z-index:3;
   
@@ -277,7 +280,6 @@ export default {
   position:relative;
   z-index:3;
   margin-top:40px;
-  overflow:hidden;
 
   dl{
     overflow:hidden;
@@ -303,7 +305,7 @@ export default {
         background:#fff;
         padding:20px;
         border-radius:10px;
-        box-shadow: 0 0 20px rgba(0,0,0,0.20);
+        border:3px solid #e2e2e2;
         text-align:center;
 
         span{display:block;}

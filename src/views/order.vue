@@ -167,7 +167,8 @@ export default {
   border-radius: 10px;
   height: 100%;
   overflow: hidden;
-  box-shadow: 0 0 30px rgba(0,0,0,0.2);
+  border:3px solid #e2e2e2;
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
 
 
   .myPointBox{

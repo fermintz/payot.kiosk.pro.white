@@ -1,265 +1,361 @@
 <template>
-  <div class="home" id="container">
-
-    <MainModal />
-
-    <div class="main">
-
-      <div class="eventBoard">
-        <h4><v-icon>fa-gifts</v-icon>공지사항</h4>
-        <div class="eventView">
-          <marquee scrollamount="10px">
-            지금 결제하시면 최대 10% 추가적립 해 드립니다
-          </marquee>
+  <div class="home fill-height">
+    <span class="triangleBox-top" />
+    <span class="triangleBox-bottom" />
+    <span class="wave wave-1" />
+    <span class="wave wave-2" />
+    <div class="inner">
+      <div class="notice">
+        <label>
+          NEWS
+        </label>
+        <div class="slide-text">
+          텍스트가 돌아가요~
         </div>
       </div>
-
-      <div class="main-title">
+      <div class="slide-view">
+        <v-carousel
+          v-model="carousel"
+          :ontinuous="false"
+          :cycle="true"
+          :show-arrows="false"
+          hide-delimiter-background
+          delimiter-icon="mdi-minus"
+          hide-delimiters
+          height="750"
+          interval="4000"
+        >
+          <v-carousel-item
+            v-for="(item, i) in slides"
+            :key="i"
+            :src="item.src"
+          >
+            <div class="display-3">
+              {{slide}}
+            </div>
+          </v-carousel-item>
+        </v-carousel>
+        <div class="delimiter">
+          <span 
+            v-for="(item, index) in slides"
+            :key="index"
+            :class="{active:index === carousel}"
+            @click="()=> carousel = index"
+          />
+        </div>
+      </div>
+      <div class="mainTitle">
         <div class="title">
-          <p>안녕하세요</p>
-          <p>페이오티 금정점입니다</p>
+          <strong>24시 셀프빨래방(삼호한마음)</strong>
         </div>
-        <div class="description">
-          <p>키오스크로 간편하게 사용해보세요</p>
-          <span></span>
+        <div class="subTitle">
+          <span>키오스크로 편리하게</span>
+          <span>세탁을 시작하세요</span>
         </div>
       </div>
-
       <div class="mainBtns">
-        <v-card class="mainBtn01"  outlined @click="nextPage">
-          <div class="image"><img src="@/assets/img/main_img02.png" /></div>
+        <div class="chage btn" v-ripple @click="()=> $router.push('/userLogin')">
           <dl>
-            <dt>
-              <span>포인트 충전하기</span
-              ><v-icon large color="#EE2073">fa-arrow-circle-right</v-icon>
-            </dt>
-            <dd>미리 금액을 충전하시면 추가 보너스 적립금을 드립니다</dd>
+            <dt>충전하기</dt>
+            <dd>미리 금액 충전하고 보너스 받기</dd>
           </dl>
-        </v-card>
-        <v-card class="mainBtn02" outlined @click="nextPage">
-          <div class="image"><img src="@/assets/img/main_img01.png" /></div>
-          <dl>
-            <dt>
-              <span>포인트 사용하기</span
-              ><v-icon large color="#EE2073">fa-arrow-circle-right</v-icon>
-            </dt>
-            <dd>충전없이 장비를 사용하시려면 이 버튼을 터치해주세요</dd>
-          </dl>
-        </v-card>  
+          <v-icon>
+            mdi-arrow-right-circle
+          </v-icon>
+        </div>
+      
+        <div class="bottom">
+          <div class="use btn" v-ripple @click="()=> $router.push('/userLogin')">
+            <dl>
+              <dt>이용하기</dt>
+              <dd>충전금액 사용하기 (충전없이 사용가능)</dd>
+            </dl>
+            <v-icon>
+              mdi-arrow-right-circle
+            </v-icon>
+          </div>
+          <div class="search btn"  v-ripple @click="()=> $router.push('/userHistory')">
+            <dl>
+              <dt>조회하기</dt>
+              <dd>나의 포인트 및 사용내역 조회하기</dd>
+            </dl>
+            <v-icon>
+              mdi-arrow-right-circle
+            </v-icon>
+          </div>
+        </div>
       </div>
-
-      <div class="mainBottom">
-        <span>
-          <v-icon color="#fff" size="32">fa-hand-pointer</v-icon>필요하신 서비스를 선택해주세요
-        </span>
-      </div>
-
     </div>
-    <!-- contents -->
-
-    <EventModal ref="eventModal"/>
+    <CustomFooter />
   </div>
 </template>
 
 <script>
-import MainModal from '@/components/modal/mainModal.vue';
-import EventModal from '@/components/modal/eventModal.vue';
+import CustomFooter from '@/components/CustomFooter.vue'
 
 export default {
-  name: 'Home',
-  components: {
-    MainModal, EventModal
+  components:{
+    CustomFooter,
   },
-  methods: {
-    nextPage() {
-      this.$router.push({ name: 'UserLogin' });
-    },
-    LoginPage() {
-      this.$router.push({ name: 'Login' });
-    },
-  },
+  data(){
+    return{
+      carousel:0,
+      slides: [
+        {
+          src:'https://www.efnews.co.kr/news/photo/201912/82572_53524_499.jpg'
+        },
+        {
+          src:'https://www.shinailbo.co.kr/news/photo/201902/1139617_417918_118.jpg'
+        },
+        {
+          src:'https://pgnqdrjultom1827145.cdn.ntruss.com/img/dd/c9/ddc96db89f72dc2401069e4e3455ea32962293f9087d6e37881f71b1c9246c82_v1.jpg'
+        },
+      ],
+    }
+  }
 };
 </script>
 
 <style lang="scss">
+.home{
+  display:flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
 
-.home {
-  padding: 60px 80px;
-  z-index: 99;
-
-  .main{
+  .inner{
+    position: relative;
     flex:1;
-    display:flex;
-    flex-direction: column;
-    justify-content: space-around;
+    padding:60px;
+    z-index:2;
   }
 
-  .eventBoard{
+  .notice{
     display:flex;
-    flex-direction:column;
-    justify-content: center;
-    margin-top:-60px;
-    position:relative;
-
-    h4{
-      color:#fff;
-      font-size:32px;font-weight:400;
-      text-shadow: 0 0 10px rgba(0,0,0,0.5);
-      height:80px;
-      display:flex;
-      align-items: center;
-
-      .v-icon{color:#fff;margin-right:20px;font-size:32px;}
-    }
-
-    .eventView{
-      background:rgba(0,0,0,0.6);
-      display:flex;
-      justify-content: space-around;
-      align-items: center;
-      color:#fff;
-      text-align:center;
-      border-radius:10px 10px 0 10px;
-      height:110px;
-      border:2px solid rgba(0,0,0,0.5);
-      color:#00FFFF;
-      font-size:40px;
-    }
-
-    .eventBtns{
-      width:100%;
-      position:absolute;
-      text-align:right;
-      top:190px;
-
-      .v-btn{
-        margin-right:0px;
-        background:rgba(0,0,0,0.68);
-        border:0px;
-        color:#fff;
-        font-size:24px;
-        font-weight:400;
-        padding:0 30px;
-        height:70px;
-        margin-top:-1px;
-        border-radius:0 0 10px 10px;
-        border:2px solid rgba(0,0,0,0.8);
-        border-top:0px;
-      }
-      .v-icon{margin-left:20px;}
-    }
-  }
-
-  .main-title {
-    text-align: left;
+    align-items: center;
     width:100%;
+    background:#fff;
+    height:100px;
+    border-radius:50px;
+    overflow: hidden;
+    box-shadow: 10px 10px 30px rgba(0,0,0,0.08);
+    
+    label{
+      width:180px;
+      text-align: center;
+      font-size:28px;
+      color:#0085DE;
+      font-weight:500;
+      border-right:3px solid #e2e2e2;
+      letter-spacing: 1px;
+    }
+    .slide-text{
+      flex:1;
+      font-size:32px;
+      color:#292929;
+      overflow:hidden;
+      padding:0 30px;
+    }
+  }
+
+  .slide-view{
+    position: relative;
+    width:960px;
+    height:740px;
+    background:#fff;
+    margin-top:60px;
+    border-radius:30px;
+    overflow:hidden;
+    box-shadow: 10px 10px 30px rgba(0,0,0,0.12);
+
+    .delimiter{
+      position:absolute;
+      width:100%;
+      text-align:center;
+      top:30px;
+      left:0px;
+      z-index:3;
+
+      span{
+        display:inline-block;
+        width:70px;
+        height:12px;
+        border-radius:6px;
+        background:#595959;
+        margin:0 10px;
+      }
+
+      span.active{
+        background:#0085DE
+      }
+
+    }
+  }
+
+  .mainTitle{
+    max-width:500px;
+    margin-top:100px;
+    margin-left:30px;
+    word-break: break-all;
+
+    .title{
+      strong{
+        font-size:60px;
+        line-height:76px;
+        font-weight:600;
+        margin-bottom:20px;
+        display:block;
+        letter-spacing: -0.7px;
+        color:#0085DE;
+      }
+      span{
+        font-size:60px;
+        line-height:60px;
+        display:block;
+        letter-spacing: -0.7px;
+      }      
+    }
+    
+    .subTitle{
+      margin-top:45px;
+      span{
+        font-size:30px;
+        display:block;
+        line-height:30px;
+        margin-bottom:20px;
+        color:#888;
+      }
+    }
+  }
+
+  .mainBtns{
     display:flex;
     flex-direction: column;
-    justify-content: center;
-
-    .title {
-      p {
-        font-size: 76px;
-        line-height: 86px;
-        color: #fff;
-        font-family: 'SCDream';
-        text-shadow: 0 0 30px rgba(0,0,0,0.2);
-      }
+    align-items: flex-end;
+    justify-content: flex-end;
+    width:100%;
+    position: absolute;
+    bottom:60px;
+    right:60px;
+    
+    .bottom{
+      display:flex;
+      align-items: center;
+      margin-top:30px;
     }
-    .description {
-      display: flex;
-      margin-top: 40px;
-      p {
-        flex: 1;
-        font-size: 42px;
-        color: rgba(255, 255, 255, 0.7);
-        word-break: keep-all;
-      }
-      span {
-        flex: 1;
-        border-top: 5px solid rgba(255, 255, 255, 0.35);
-        margin-top: 28px;
-      }
-    }
-  }
-}
 
-.mainBtns {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+    .btn{
+      display:flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-end;
+      width:360px;
+      height:360px;
+      border-radius:30px;
+      background:#fff;
+      margin-left:30px;
+      padding:36px;
+      box-shadow: 10px 10px 30px rgba(0,0,0,0.10);
 
-  .mainBtn01 {
-    margin-right: 20px;
-    box-shadow: 0 0 30px rgba(0,0,0,0.2);
-  }
-  .mainBtn02 {
-    margin-left: 20px;
-    box-shadow: 0 0 30px rgba(0,0,0,0.2);
-  }
-
-  .image {
-    margin: 40px 0;
-    text-align: center;
-  }
-  .v-card:not(.v-sheet--tile):not(.v-card--shaped) {
-    border-radius: 20px;
-  }
-  .v-card {
-    display: block;
-    background: #fff;
-    padding: 40px;
-    border-radius: 20px;
-    color: #292929;
-
-    dl {
-      dt {
-        font-size: 42px;
-        font-weight: 500;
-        letter-spacing: -2px;
-        span {
-          margin-right: 10px;
-          display: inline-block;
-          vertical-align: middle;
+      dl{
+        dt{
+          font-size:38px;
+          font-weight:500;
+        }
+        dd{
+          font-size:28px;
+          word-break: keep-all;
+          margin-top:15px;
+          color:#888;
         }
       }
-      dd {
-        margin-top: 10px;
-        font-size: 28px;
-        color: #797979;
-        word-break: keep-all;
+
+      .v-icon{
+        font-size:60px;
+        color:#292929;
       }
     }
-  }
 
-  .mainBtn03 {
-    margin-top: 20px;
-    dd span {
-      color: #ee2073;
-
-      
+    .btn.chage{
+      background: rgb(0,133,222);
+      background: linear-gradient(138deg, rgba(0,133,222,1) 30%, rgba(0,53,222,1) 100%);
+      color:#fff;
+      dl{
+        dd{color:rgba(255,255,255,0.8)}
+      }
+      .v-icon{color:#fff;}
+    }
+    .btn.use{
+      background: rgb(238,32,115);
+      background: linear-gradient(138deg, rgba(238,32,115,1) 0%, rgba(230,20,209,1) 100%);
+      color:#fff;
+      dl{
+        dd{color:rgba(255,255,255,0.8)}
+      }
+      .v-icon{color:#fff;}
+    }
+    .btn.search{
+      border:3px solid #d2d2d2;
     }
   }
-}
 
-.mainBottom {
-  display:flex;
-  align-items: center;
-  justify-content: center;
-  font-size:28px;
-  color:#fff;
-
-  span{
-    background:rgba(0,0,0,0.2);
-    padding:0 40px;
-    border-radius:40px;
-    height:60px;
-    display:flex;
-    justify-content: center;
-    align-items: center;
+  .triangleBox-top{
+    position:absolute;
+    top:0;
+    left:0;
+    width:0px;
+    height:0px;
+    border-bottom:700px solid transparent;
+    border-left:700px solid #0085DE;
+    z-index:1;
+    display:none;
+  }
+  .triangleBox-bottom{
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:0px;
+    height:0px;
+    border-top:1400px solid transparent;
+    border-left:1400px solid rgba(0,133,222,0.1);
+    z-index:1;
+    display:none; 
+  }
+  .wave{
+    position:absolute;
+    bottom:0;
+    right:0;
+    border-radius:43%; 
+  }
+  .wave-1{
+    top:-600px;
+    left:-600px;
+    bottom:unset;
+    right:unset;
+    width:1000px;
+    height:1000px;
+    background: rgb(61,177,255);
+    background: linear-gradient(140deg, rgba(61,177,255,1) 0%, rgba(0,133,222,1) 100%);
+    animation:wave 16s infinite linear;
+  }
+  .wave-2{
+    width:1800px;
+    height:1800px;
+    right:-900px;
+    bottom:-800px;
+    background: #E5F3FC;
+    animation:wave2 13s infinite linear;
   }
 
-  .v-icon{margin-right:30px}
+  @keyframes wave {
+    from{transform:rotate(0deg)}
+    from{transform:rotate(-360deg)}
+  }
+
+  @keyframes wave2 {
+    from{transform:rotate(0deg)}
+    from{transform:rotate(360deg)}
+  }
 }
 
 </style>

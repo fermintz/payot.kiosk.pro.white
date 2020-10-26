@@ -11,18 +11,18 @@
       <div class="pointItems fill-height">
         <v-row>
           <v-col cols="6" v-for="col in pointGoods" :key="col">
-            <v-btn outlined width="100%" height="240px" class="pa-0" @click="$refs.confirmModal.open(true)">
-              <div class="pointItem">
-                <div class="priceInfo">
-                  <strong>{{col.name}}</strong>
-                  <span>{{col.price | numeral('0,0')}} 원</span>
-                </div>
-                <div class="pointInfo">
-                  <span>적립보너스</span>
-                  <strong>+{{col.bonus | numeral('0,0')}}</strong>
-                </div>
+ 
+            <div class="pointItem" @click="$refs.confirmModal.open(true)" v-ripple>
+              <div class="priceInfo">
+                <strong>{{col.name}}</strong>
+                <span>{{col.price | numeral('0,0')}} 원</span>
               </div>
-            </v-btn>
+              <div class="pointInfo">
+                <span>적립보너스</span>
+                <strong>+{{col.bonus | numeral('0,0')}}</strong>
+              </div>
+            </div>
+    
           </v-col>
         </v-row>
       </div>
@@ -119,28 +119,28 @@ export default {
     border-radius:10px 10px 0 0;
   }
 
-  .v-btn{
-      border:2px solid #d2d2d2;
-      border-radius:10px;
-      overflow:hidden;
-      padding:0px;
-      
-    }
-
   .pointItems{
     flex-direction: column;
     background:#fff;
-    border-radius:0 0 10px 10px;
+    border-radius:10px;
     overflow-y:auto;
     height:100%;
     padding:40px;
+    border:3px solid #e2e2e2;
+
+    .row{overflow:unset;}
+    .col{overflow:unset;}
 
     .pointItem{
       height:240px;
       display:flex;
       flex-direction: column;
       justify-content: space-between;
+      border-radius:10px;
+      background:#fff;
       width:100%;
+      border:3px solid #e2e2e2;
+      box-shadow: 5px 5px 25px rgba(0,0,0,0.1);
 
       .priceInfo{
         flex:1;
@@ -175,6 +175,7 @@ export default {
         align-items: center;
         padding:0 20px;
         font-size:24px;
+        border-top:3px solid #e2e2e2;
         
         strong{color:#0085DE}
       }

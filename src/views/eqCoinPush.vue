@@ -112,7 +112,8 @@ export default {
   background: #fff;
   border-radius: 10px;
   padding: 40px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+  border:3px solid #e2e2e2;
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
 
   .headTitle {
     dt {
@@ -190,7 +191,8 @@ export default {
   border-radius: 10px;
   margin-top: 30px;
   padding: 40px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+  border:3px solid #e2e2e2;
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
 
   h4 {
     font-size: 36px;

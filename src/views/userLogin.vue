@@ -201,7 +201,7 @@ export default {
     .introText {
       font-size: 64px;
       line-height: 88px;
-      color: #fff;
+      color: #0085de;
       word-break: keep-all;
       font-weight: 500;
       margin-bottom: 70px;
@@ -212,9 +212,9 @@ export default {
       width: 100%;
       flex-direction: row;
       background: #fff;
-      border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+      box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
+      border-radius:30px;
 
       .phoneNumber-view {
         display: flex;
@@ -222,7 +222,10 @@ export default {
         flex-direction: column;
         padding: 40px;
         overflow: hidden;
-        background: #f8f8f8;
+        background: #fff;
+        border:3px solid #e2e2e2;
+        border-radius:30px 0 0 30px;
+
         h4 {
           font-weight: 500;
           font-size: 28px;
@@ -278,13 +281,16 @@ export default {
         flex: 1;
         align-items: center;
         padding: 40px;
+        background: rgb(0,133,222);
+        // background: linear-gradient(138deg, rgba(0,133,222,1) 30%, rgba(0,53,222,1) 100%);
+
         .rowLine {
           margin-bottom: 20px;
         }
         .key {
           font-size: 32px;
           border-radius: 50px;
-          background-color: #f2f2f2;
+          background-color: #fff;
           border:0px;
           margin: 0 10px;
           overflow:hidden;
@@ -299,14 +305,13 @@ export default {
 
   .guide{
 
-    margin-top:50px;
+    margin-top:80px;
 
     h4{
       font-size:36px;
-      color:#fff;
+      color:#292929;
       font-weight:500;
     }
-
 
     dl{
       flex:1;margin-top:20px;
@@ -314,22 +319,29 @@ export default {
       dt{
         width:100%;
         height:240px;
-        background:#fff;
         border-radius:10px;
         display:flex;
         flex-direction:column;
         justify-content: center;
         align-items: center;
         overflow:hidden;
-
+        border:3px solid #e2e2e2;
         img{height:100%;}
       }
+
       dd{
         margin-top:30px;
-        strong{display:block;color:#fff;font-weight:500;font-size:24px;text-align:center;}
+
+        strong{
+          display:block;
+          color:#292929;
+          font-weight:500;
+          font-size:24px;
+          text-align:left;
+        }
         span{
           display:block;
-          color:rgba(255,255,255,0.7);
+          color:#888;
           font-size:22px;
           font-weight:400;
           margin-top:10px;

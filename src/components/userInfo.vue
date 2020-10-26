@@ -12,7 +12,7 @@
           width="160px"
           height="80px"
           elevation="0"
-          style="background:#fff;"
+          text
           >포인트충전</v-btn
         >
       </div>
@@ -40,18 +40,20 @@ export default {
   align-items: center;
   width: 100%;
   justify-content: space-between;
-  background: rgba(0, 0, 0, 0.3);
+  background:#fff;
   padding: 30px;
-  color: #fff;
+  color: #292929;
   border-radius: 10px;
+  border:3px solid #0085DE;
 
   .left {
     .label {
-      color: rgba(255, 255, 255, 0.7);
+      color:#888;
     }
     .phone {
       margin-top: 10px;
-      color: #fff;
+      font-weight:500;
+      color: #292929;
     }
   }
 
@@ -63,17 +65,20 @@ export default {
       font-size: 42px;
       margin-right: 30px;
       font-weight: 500;
+      color:#0085DE;
+  
       span {
         font-size: 24px;
         font-weight: 400;
-        color: rgba(255, 255, 255, 0.7);
+        color: #888;
       }
     }
     .pointChageBtn {
       font-size: 24px;
-      background: #fff;
+      background: #0085DE;
       border-radius: 10px;
       border: 0px;
+      color:#fff;
     }
   }
 }
