@@ -24,6 +24,7 @@
           hide-delimiters
           height="750"
           interval="4000"
+          touchless
         >
           <v-carousel-item
             v-for="(item, i) in slides"
@@ -169,6 +170,7 @@ export default {
     box-shadow: 10px 10px 30px rgba(0,0,0,0.12);
 
     .delimiter{
+      display:none;
       position:absolute;
       width:100%;
       text-align:center;
