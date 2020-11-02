@@ -22,18 +22,19 @@
           hide-delimiter-background
           delimiter-icon="mdi-minus"
           hide-delimiters
-          height="750"
+          height="740"
           interval="4000"
           touchless
         >
-          <v-carousel-item
+          <!-- <v-carousel-item
             v-for="(item, i) in slides"
             :key="i"
             :src="item.src"
-          >
-            <div class="display-3">
-              {{slide}}
-            </div>
+          /> -->
+
+          <v-carousel-item v-for="(item, i) in slides" :key="i" class="slide-item">
+            <video src="../assets/video/mov01.mp4" width="100%" height="100%" autoplay loop v-if="item.video"/>
+            <img :src="item.image" v-else>
           </v-carousel-item>
         </v-carousel>
         <div class="delimiter">
@@ -103,13 +104,16 @@ export default {
       carousel:0,
       slides: [
         {
-          src:'https://www.efnews.co.kr/news/photo/201912/82572_53524_499.jpg'
+          type:'video',
+          video:'../assets/video/mov01.mp4'
         },
         {
-          src:'https://www.shinailbo.co.kr/news/photo/201902/1139617_417918_118.jpg'
+          type:'img',
+          image:'https://www.shinailbo.co.kr/news/photo/201902/1139617_417918_118.jpg'
         },
         {
-          src:'https://pgnqdrjultom1827145.cdn.ntruss.com/img/dd/c9/ddc96db89f72dc2401069e4e3455ea32962293f9087d6e37881f71b1c9246c82_v1.jpg'
+          type:'img',
+          image:'https://pgnqdrjultom1827145.cdn.ntruss.com/img/dd/c9/ddc96db89f72dc2401069e4e3455ea32962293f9087d6e37881f71b1c9246c82_v1.jpg'
         },
       ],
     }
@@ -162,12 +166,28 @@ export default {
   .slide-view{
     position: relative;
     width:960px;
-    height:740px;
+    height:740px; // 540px 16:9 비율 
     background:#fff;
     margin-top:60px;
     border-radius:30px;
     overflow:hidden;
     box-shadow: 10px 10px 30px rgba(0,0,0,0.12);
+
+    .slide-item{
+      display:flex;
+      align-items: center;
+      justify-content: center;
+      background: #000;
+
+      img{
+        display:block;
+        height:100%;
+        position: relative;
+        left:50%;
+        transform: translateX(-50%);
+      }
+      video{width:100%;}
+    }
 
     .delimiter{
       display:none;
