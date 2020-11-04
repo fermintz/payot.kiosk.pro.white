@@ -5,14 +5,19 @@
       <span class="bottom" />
       <span class="wave wave-1" />
       <span class="wave wave-2" />
+      <span class="wave wave-3" />
     </div>
 
-    <div class="shop-head">
-      <v-icon>mdi-home</v-icon>
-      <h2>
-        페이오티 금정점
-        <span></span>
-      </h2>
+    <div class="main-head">
+      <div class="logo">
+        <v-icon>mdi-home-outline</v-icon>
+        <h2>
+          페이오티 금정점
+          <span></span>
+        </h2>
+      </div>
+      <div class="lang">
+      </div>
     </div>
 
     <div class="inner">
@@ -167,36 +172,42 @@ export default {
     z-index: 2;
   }
 
-  .shop-head{
+  .main-head{
     display:flex;
     align-items: center;
-    height:120px;
+    justify-content: space-between;
     padding:0 30px;
+    height:120px;
+    z-index:10;
 
-    h2{
-      position: relative;
-      color:#000;
-      letter-spacing:0px;
-      font-size:30px;
-      font-weight:400;
+    .logo{
+      display:flex;
+      align-items: center;
 
-      span{
-        position: absolute;
-        bottom:0px;
-        width:100%;
-        height:12px;
-        border-radius:6px;
-        display:inline-block;
-        background:rgba(238, 32, 115,0.2)
+      h2{
+        position: relative;
+        color:#000;
+        letter-spacing:0px;
+        font-size:30px;
+        font-weight:400;
+
+        span{
+          position: absolute;
+          bottom:0px;
+          width:100%;
+          height:12px;
+          border-radius:6px;
+          display:inline-block;
+          background:rgba(0, 133, 222,0.2);
+        }
+      }
+
+      .v-icon{
+        color:#0085DE;
+        font-size:54px;
+        margin-right:15px;
       }
     }
-
-    .v-icon{
-      color:#EE2073;
-      font-size:48px;
-      margin-right:15px;
-    }
- 
   }
 
   .slide-view {
@@ -398,13 +409,22 @@ export default {
       animation: wave 16s infinite linear;
     }
     .wave-2 {
-      width: 1000px;
-      height: 1000px;
-      right: -600px;
-      top: -600px;
+      width: 800px;
+      height: 800px;
+      right: -400px;
+      top: -400px;
       background: #0085de;
       animation: wave2 13s infinite linear;
     }
+    .wave-3 {
+      width: 300px;
+      height: 300px;
+      right: -150px;
+      top: 350px;
+      background: #0085DE;
+      animation: wave2 10s infinite linear;
+    }
+
 
     @keyframes wave {
       from {
