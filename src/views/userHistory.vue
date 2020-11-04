@@ -67,8 +67,17 @@
               </dl>
             </div>
           </li>
-
         </ul>
+      </div>
+      <div class="btns">
+        <v-btn text class="eq-use">
+          <label>장비사용 바로가기</label>
+          <v-icon>mdi-chevron-right</v-icon>
+        </v-btn>
+        <v-btn text class="chage-use">
+          <label>충전하러 바로가기</label>
+          <v-icon>mdi-chevron-right</v-icon>
+        </v-btn>
       </div>
     </div>
   </div>
@@ -184,6 +193,42 @@ export default {
         dl:first-child{border:0px;}
       }
     }
+  }
+}
+
+.btns{
+  display:flex;
+  align-items: center;
+
+  margin-top:60px;
+  border-radius:50px;
+  height:120px;
+  background:#fff;
+  overflow: hidden;
+  box-shadow: 10px 10px 30px rgba(0,0,0,0.1);
+
+  .v-btn{
+    flex:1;;
+    min-height:120px;
+
+    label{
+      font-size:30px;
+      font-weight:400;
+      color:#fff;
+    }
+    .v-icon{
+      margin-left:15px;
+      font-size:50px;
+      color:#fff;
+    }
+  }
+
+  .v-btn.eq-use{
+    background:#0085DE;
+  }
+
+  .v-btn.chage-use{
+    background:#EE2073;
   }
 }
 

@@ -1,18 +1,21 @@
 <template>
   <div class="home fill-height">
-    <span class="triangleBox-top" />
-    <span class="triangleBox-bottom" />
-    <span class="wave wave-1" />
-    <span class="wave wave-2" />
+    <div class="main-bg">
+      <span class="top" />
+      <span class="bottom" />
+      <span class="wave wave-1" />
+      <span class="wave wave-2" />
+    </div>
+
+    <div class="shop-head">
+      <v-icon>mdi-home</v-icon>
+      <h2>
+        페이오티 금정점
+        <span></span>
+      </h2>
+    </div>
+
     <div class="inner">
-      <div class="notice">
-        <label>
-          NEWS
-        </label>
-        <div class="slide-text">
-          텍스트가 돌아가요~
-        </div>
-      </div>
       <div class="slide-view">
         <v-carousel
           v-model="carousel"
@@ -22,41 +25,45 @@
           hide-delimiter-background
           delimiter-icon="mdi-minus"
           hide-delimiters
-          height="740"
+          height="1020"
           interval="4000"
           touchless
         >
-          <!-- <v-carousel-item
+          <v-carousel-item
             v-for="(item, i) in slides"
             :key="i"
-            :src="item.src"
-          /> -->
-
-          <v-carousel-item v-for="(item, i) in slides" :key="i" class="slide-item">
-            <video src="../assets/video/mov01.mp4" width="100%" height="100%" autoplay loop v-if="item.video"/>
-            <img :src="item.image" v-else>
+            class="slide-item"
+          >
+            <video
+              :src="item.video"
+              autoplay
+              loop
+              v-if="item.video"
+              :id="'video' + i"
+            />
+            <img :src="item.image" v-else />
           </v-carousel-item>
         </v-carousel>
-        <div class="delimiter">
-          <span 
-            v-for="(item, index) in slides"
-            :key="index"
-            :class="{active:index === carousel}"
-            @click="()=> carousel = index"
-          />
+
+      </div>
+      <div class="notice">
+        <label>
+          NEWS
+        </label>
+        <div class="slide-text">
+          텍스트가 돌아가요~
         </div>
       </div>
-      <div class="mainTitle">
-        <div class="title">
-          <strong>24시 셀프빨래방(삼호한마음)</strong>
-        </div>
-        <div class="subTitle">
-          <span>키오스크로 편리하게</span>
-          <span>세탁을 시작하세요</span>
-        </div>
-      </div>
+    </div> <!-- inner -->
+
+
       <div class="mainBtns">
-        <div class="chage btn" v-ripple @click="()=> $router.push('/userLogin')">
+        <div class="btns-inner">
+        <div
+          class="chage btn"
+          v-ripple
+          @click="() => $router.push('/userLogin')"
+        >
           <dl>
             <dt>충전하기</dt>
             <dd>미리 금액 충전하고 보너스 받기</dd>
@@ -65,319 +72,358 @@
             mdi-arrow-right-circle
           </v-icon>
         </div>
-      
-        <div class="bottom">
-          <div class="use btn" v-ripple @click="()=> $router.push('/userLogin')">
-            <dl>
-              <dt>이용하기</dt>
-              <dd>충전금액 사용하기 (충전없이 사용가능)</dd>
-            </dl>
-            <v-icon>
-              mdi-arrow-right-circle
-            </v-icon>
-          </div>
-          <div class="search btn"  v-ripple @click="()=> $router.push('/userHistory')">
-            <dl>
-              <dt>조회하기</dt>
-              <dd>나의 포인트 및 사용내역 조회하기</dd>
-            </dl>
-            <v-icon>
-              mdi-arrow-right-circle
-            </v-icon>
-          </div>
+        <div
+          class="use btn"
+          v-ripple
+          @click="() => $router.push('/userLogin')"
+        >
+          <dl>
+            <dt>이용하기</dt>
+            <dd>충전금액 사용하기 (충전없이 사용가능)</dd>
+          </dl>
+          <v-icon>
+            mdi-arrow-right-circle
+          </v-icon>
+        </div>
+        <div
+          class="search btn"
+          v-ripple
+          @click="() => $router.push('/userHistory')"
+        >
+          <dl>
+            <dt>조회하기</dt>
+            <dd>나의 포인트 및 사용내역 조회하기</dd>
+          </dl>
+          <v-icon>
+            mdi-arrow-right-circle
+          </v-icon>
+        </div>
         </div>
       </div>
-    </div>
+
     <CustomFooter />
   </div>
 </template>
 
 <script>
-import CustomFooter from '@/components/CustomFooter.vue'
+import CustomFooter from '@/components/CustomFooter.vue';
 
 export default {
-  components:{
+  components: {
     CustomFooter,
   },
-  data(){
-    return{
-      carousel:0,
+  data() {
+    return {
+      carousel: 0,
       slides: [
         {
-          type:'video',
-          video:'../assets/video/mov01.mp4'
+          type: 'video',
+          video: '/video/mov01.mp4',
         },
         {
-          type:'img',
-          image:'https://www.shinailbo.co.kr/news/photo/201902/1139617_417918_118.jpg'
+          type: 'video',
+          video: '/video/mov02.mp4',
         },
         {
-          type:'img',
-          image:'https://pgnqdrjultom1827145.cdn.ntruss.com/img/dd/c9/ddc96db89f72dc2401069e4e3455ea32962293f9087d6e37881f71b1c9246c82_v1.jpg'
+          type: 'img',
+          image:
+            'https://lh3.googleusercontent.com/proxy/eMaqeJF0Z3EiNFX8AVueWj-nG4yE88-e8YM42dIrTC-zCZPsQF55zuvD4tVJALcgugq9Y0sAunAufrbDHmN3zoZupynMXEvgj4zmb3Fm3GUXe1oue7MGRlMNc-Pm54S444ciTvReqMdn',
+        },
+        {
+          type: 'img',
+          image:
+            'https://i.pinimg.com/originals/0f/38/45/0f3845a5c6125210175d06fcb7b7dbb6.jpg',
         },
       ],
-    }
-  }
+      videos: {
+        totalDuration: 0,
+      },
+    };
+  },
+  mounted() {
+    const videoElement = document.getElementById('video0');
+
+    videoElement.ondurationchange = () => {
+      console.log(videoElement.duration);
+      this.videos.totalDuration = videoElement.duration;
+    };
+    console.log(document.getElementById('video0'));
+  },
 };
 </script>
 
 <style lang="scss">
-.home{
-  display:flex;
+.home {
+  display: flex;
   flex-direction: column;
   position: relative;
   overflow: hidden;
 
-  .inner{
+  .inner {
     position: relative;
-    flex:1;
-    padding:60px;
-    z-index:2;
+    flex: 1;
+    padding: 60px;
+    padding-top:0px;
+    z-index: 2;
   }
 
-  .notice{
+  .shop-head{
     display:flex;
     align-items: center;
-    width:100%;
-    background:#fff;
-    height:100px;
-    border-radius:50px;
-    overflow: hidden;
-    box-shadow: 10px 10px 30px rgba(0,0,0,0.08);
-    
-    label{
-      width:180px;
-      text-align: center;
-      font-size:28px;
-      color:#0085DE;
-      font-weight:500;
-      border-right:3px solid #e2e2e2;
-      letter-spacing: 1px;
-    }
-    .slide-text{
-      flex:1;
-      font-size:32px;
-      color:#292929;
-      overflow:hidden;
-      padding:0 30px;
-    }
-  }
+    height:120px;
+    padding:0 30px;
 
-  .slide-view{
-    position: relative;
-    width:960px;
-    height:740px; // 540px 16:9 비율 
-    background:#fff;
-    margin-top:60px;
-    border-radius:30px;
-    overflow:hidden;
-    box-shadow: 10px 10px 30px rgba(0,0,0,0.12);
-
-    .slide-item{
-      display:flex;
-      align-items: center;
-      justify-content: center;
-      background: #000;
-
-      img{
-        display:block;
-        height:100%;
-        position: relative;
-        left:50%;
-        transform: translateX(-50%);
-      }
-      video{width:100%;}
-    }
-
-    .delimiter{
-      display:none;
-      position:absolute;
-      width:100%;
-      text-align:center;
-      top:30px;
-      left:0px;
-      z-index:3;
+    h2{
+      position: relative;
+      color:#000;
+      letter-spacing:0px;
+      font-size:30px;
+      font-weight:400;
 
       span{
-        display:inline-block;
-        width:70px;
+        position: absolute;
+        bottom:0px;
+        width:100%;
         height:12px;
         border-radius:6px;
-        background:#595959;
-        margin:0 10px;
+        display:inline-block;
+        background:rgba(238, 32, 115,0.2)
+      }
+    }
+
+    .v-icon{
+      color:#EE2073;
+      font-size:48px;
+      margin-right:15px;
+    }
+ 
+  }
+
+  .slide-view {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 1020px;
+    border-radius: 30px;
+    overflow: hidden;
+    background:#000;
+    box-shadow: 10px 10px 45px rgba(0, 0, 0, 0.3);
+
+    .slide-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow:hidden;
+
+      img {
+        display:block;
+        height: 100%;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
       }
 
-      span.active{
-        background:#0085DE
+      video {
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: relative;
       }
-
     }
   }
 
-  .mainTitle{
-    max-width:500px;
-    margin-top:100px;
-    margin-left:30px;
-    word-break: break-all;
+  .notice {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background: #fff;
+    border:3px solid #ee2073;
+    height: 100px;
+    border-radius: 50px;
+    margin-top:45px;
+    overflow: hidden;
 
-    .title{
-      strong{
-        font-size:60px;
-        line-height:76px;
-        font-weight:600;
-        margin-bottom:20px;
-        display:block;
-        letter-spacing: -0.7px;
-        color:#0085DE;
-      }
-      span{
-        font-size:60px;
-        line-height:60px;
-        display:block;
-        letter-spacing: -0.7px;
-      }      
+    label {
+      width: 180px;
+      text-align: center;
+      font-size: 28px;
+      color:  #ee2073;
+      font-weight: 500;
+      border-right: 3px solid #e2e2e2;
+      letter-spacing: 1px;
     }
-    
-    .subTitle{
-      margin-top:45px;
-      span{
-        font-size:30px;
-        display:block;
-        line-height:30px;
-        margin-bottom:20px;
-        color:#888;
-      }
+    .slide-text {
+      flex: 1;
+      font-size: 32px;
+      color: #292929;
+      overflow: hidden;
+      padding: 0 30px;
     }
   }
 
   .mainBtns{
-    display:flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: flex-end;
-    width:100%;
+    width: 100%;
     position: absolute;
-    bottom:60px;
-    right:60px;
-    
-    .bottom{
-      display:flex;
-      align-items: center;
-      margin-top:30px;
-    }
+    bottom: 60px;
+    padding:0 15px;
+    z-index:5;
+  }
 
-    .btn{
-      display:flex;
+  .btns-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius:30px 30px 0 0;
+    overflow:hidden;
+    border:3px solid #c2c2c2;
+    border-bottom:0px;
+    background:#fff;  
+    z-index:3;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
+
+    .btn {
+      flex:1;
+      display: flex;
       flex-direction: column;
       justify-content: space-between;
       align-items: flex-end;
-      width:360px;
-      height:360px;
-      border-radius:30px;
-      background:#fff;
-      margin-left:30px;
-      padding:36px;
-      box-shadow: 10px 10px 30px rgba(0,0,0,0.10);
+      height:500px;
+      padding:45px;
 
-      dl{
-        dt{
-          font-size:38px;
-          font-weight:500;
+      dl {
+        dt {
+          font-size: 39px;
+          font-weight: 500;
         }
-        dd{
-          font-size:28px;
+        dd {
+          font-size: 28px;
           word-break: keep-all;
-          margin-top:15px;
+          margin-top: 15px;
+          color: #888;
+        }
+      }
+
+      .v-icon {
+        font-size: 90px;
+        color: #292929;
+      }
+    }
+
+    .btn.chage {
+      dl {
+        dt{
+          color:#EE2073
+        }
+        dd {
           color:#888;
         }
       }
-
-      .v-icon{
-        font-size:60px;
-        color:#292929;
+      .v-icon {
+        color:#EE2073
       }
     }
 
-    .btn.chage{
-      background: rgb(0,133,222);
-      background: linear-gradient(138deg, rgba(0,133,222,1) 30%, rgba(0,53,222,1) 100%);
-      color:#fff;
+    .btn.use {
+      border-left:3px solid #e2e2e2;
+      border-right:3px solid #e2e2e2;
+      dl {
+        dt{
+          color:#0085DE;
+        }
+        dd {
+          color:#888;
+        }
+      }
+      .v-icon {
+        color:#0085DE
+      }
+    }
+
+    .btn.search {
       dl{
-        dd{color:rgba(255,255,255,0.8)}
+        dd{
+          color:#888;
+        }
       }
-      .v-icon{color:#fff;}
     }
-    .btn.use{
-      background: rgb(238,32,115);
-      background: linear-gradient(138deg, rgba(238,32,115,1) 0%, rgba(230,20,209,1) 100%);
-      color:#fff;
-      dl{
-        dd{color:rgba(255,255,255,0.8)}
+  }
+
+  .main-bg{
+    position:absolute;
+    width:100%;
+    height:100%;
+    left:0px;
+    top:0px;
+
+    .top {
+      position: absolute;
+      top: -520px;
+      right: 50px;
+      width: 360px;
+      height: 1000px;
+      border-radius:180px;
+      z-index: 1;
+      background:#0085DE;
+      transform: rotate(130deg);
+      display:none;
+    }
+
+    .bottom {
+      position: absolute;
+      bottom:-80px;
+      left: 0px;
+      width: 600px;
+      height: 1200px;
+      border-radius:300px;
+      z-index: 1;
+      background:#EE2073;
+      transform: rotate(130deg);
+      display:none;
+    }
+
+    .wave {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      border-radius: 43%;
+    }
+    .wave-1 {
+      bottom:-500px;
+      left: -800px;
+      width: 1500px;
+      height: 1500px;
+      background:#ee2073;
+      animation: wave 16s infinite linear;
+    }
+    .wave-2 {
+      width: 1000px;
+      height: 1000px;
+      right: -600px;
+      top: -600px;
+      background: #0085de;
+      animation: wave2 13s infinite linear;
+    }
+
+    @keyframes wave {
+      from {
+        transform: rotate(0deg);
       }
-      .v-icon{color:#fff;}
+      from {
+        transform: rotate(-360deg);
+      }
     }
-    .btn.search{
-      border:3px solid #d2d2d2;
+
+    @keyframes wave2 {
+      from {
+        transform: rotate(0deg);
+      }
+      from {
+        transform: rotate(360deg);
+      }
     }
   }
-
-  .triangleBox-top{
-    position:absolute;
-    top:0;
-    left:0;
-    width:0px;
-    height:0px;
-    border-bottom:700px solid transparent;
-    border-left:700px solid #0085DE;
-    z-index:1;
-    display:none;
-  }
-  .triangleBox-bottom{
-    position:absolute;
-    bottom:0;
-    left:0;
-    width:0px;
-    height:0px;
-    border-top:1400px solid transparent;
-    border-left:1400px solid rgba(0,133,222,0.1);
-    z-index:1;
-    display:none; 
-  }
-  .wave{
-    position:absolute;
-    bottom:0;
-    right:0;
-    border-radius:43%; 
-  }
-  .wave-1{
-    top:-600px;
-    left:-600px;
-    bottom:unset;
-    right:unset;
-    width:1000px;
-    height:1000px;
-    background: rgb(61,177,255);
-    background: linear-gradient(140deg, rgba(61,177,255,1) 0%, rgba(0,133,222,1) 100%);
-    animation:wave 16s infinite linear;
-  }
-  .wave-2{
-    width:1800px;
-    height:1800px;
-    right:-900px;
-    bottom:-800px;
-    background: #E5F3FC;
-    animation:wave2 13s infinite linear;
-  }
-
-  @keyframes wave {
-    from{transform:rotate(0deg)}
-    from{transform:rotate(-360deg)}
-  }
-
-  @keyframes wave2 {
-    from{transform:rotate(0deg)}
-    from{transform:rotate(360deg)}
-  }
+  
 }
-
 </style>
