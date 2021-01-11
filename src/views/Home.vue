@@ -122,22 +122,14 @@ export default {
       carousel: 0,
       slides: [
         {
-          type: 'video',
-          video: '/video/mov01.mp4',
-        },
-        {
-          type: 'video',
-          video: '/video/mov02.mp4',
+          type: 'img',
+          image:
+            './img/slide01.png',
         },
         {
           type: 'img',
           image:
-            'https://lh3.googleusercontent.com/proxy/eMaqeJF0Z3EiNFX8AVueWj-nG4yE88-e8YM42dIrTC-zCZPsQF55zuvD4tVJALcgugq9Y0sAunAufrbDHmN3zoZupynMXEvgj4zmb3Fm3GUXe1oue7MGRlMNc-Pm54S444ciTvReqMdn',
-        },
-        {
-          type: 'img',
-          image:
-            'https://i.pinimg.com/originals/0f/38/45/0f3845a5c6125210175d06fcb7b7dbb6.jpg',
+            './img/slide02.png',
         },
       ],
       videos: {

@@ -9,7 +9,7 @@
         개인정보 취급방침</v-btn>
       <v-btn text height="60px" color="rgba(255,255,255,0.7)" class="footerBtn" @click="tremsOpen(true)">
         키오스크 이용약관</v-btn>
-      <div class="version">V1.2.3</div>
+      <div class="version" @click="$router.push('login')">V1.2.3</div>
     </div>
 
     <Terms 

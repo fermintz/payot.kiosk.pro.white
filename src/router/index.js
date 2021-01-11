@@ -14,6 +14,7 @@ import CardChage from '../views/cardChage.vue';
 import Examine from '../views/examine.vue';
 import innerLayout from '../layout/innerLayout.vue';
 import UserHistory from '../views/userHistory.vue';
+import EqSetup from '../views/eqSetup.vue';
 
 Vue.use(VueRouter);
 
@@ -27,6 +28,11 @@ const routes = [
     path: '/login',
     name: 'Login',
     component: Login,
+  },
+  {
+    path: '/eqSetup',
+    name: 'eqSetup',
+    component: EqSetup,
   },
   {
     path:'',

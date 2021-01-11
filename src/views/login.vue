@@ -28,7 +28,7 @@ export default {
   name: 'login',
   methods: {
     loging() {
-      this.$router.push('/');
+      this.$router.push('/eqSetup');
     },
   },
 };
@@ -42,6 +42,7 @@ export default {
   align-items: center;
   padding: 120px;
   height:100%;
+  background:#393939;
 }
 .loginTitle {
   font-size:130px;
