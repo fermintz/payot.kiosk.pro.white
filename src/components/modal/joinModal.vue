@@ -155,7 +155,7 @@ export default {
     },
     // 다음으로
     nextPage() {
-      this.$router.push({ name: 'Product' });
+      this.$router.push({ name: 'EqSelect' });
     },
   },
 };

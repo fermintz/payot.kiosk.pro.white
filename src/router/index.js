@@ -15,6 +15,7 @@ import Examine from '../views/examine.vue';
 import innerLayout from '../layout/innerLayout.vue';
 import UserHistory from '../views/userHistory.vue';
 import EqSetup from '../views/eqSetup.vue';
+import EqSelect from '../views/eqSelect.vue';
 
 Vue.use(VueRouter);
 
@@ -48,6 +49,11 @@ const routes = [
         path: '/userLogin',
         name: 'UserLogin',
         component: UserLogin,
+      },
+      {
+        path: '/eqSelect',
+        name: 'EqSelect',
+        component: EqSelect,
       },
       {
         path: '/product',
