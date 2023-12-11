@@ -57,35 +57,7 @@
           </div>
         </div>
 
-        <div class="btn" @click="nextPage('Product')" v-ripple>
-          <dl>
-            <dt>
-              <v-icon>mdi-cube-outline</v-icon>
-            </dt>
-            <dd>
-              <strong>오락기</strong>
-              <span>ETC EQUIPMENT</span>
-            </dd>
-          </dl>
-          <div class="arrow-icon">
-            <v-icon>mdi-chevron-right-circle-outline</v-icon>
-          </div>
-        </div>
 
-        <div class="btn" @click="nextPage('Product')" v-ripple>
-          <dl>
-            <dt>
-              <v-icon>mdi-cube-outline</v-icon>
-            </dt>
-            <dd>
-              <strong>오락기</strong>
-              <span>ETC EQUIPMENT</span>
-            </dd>
-          </dl>
-          <div class="arrow-icon">
-            <v-icon>mdi-chevron-right-circle-outline</v-icon>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -121,6 +93,7 @@ export default {
 .eqCateList{
   flex:1;
   overflow-y:auto;
+  max-height:900px;
 
   .btn{
     display:flex;
