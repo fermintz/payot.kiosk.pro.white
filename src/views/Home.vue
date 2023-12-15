@@ -13,7 +13,6 @@
         <v-icon>mdi-home-outline</v-icon>
         <h2>
           페이오티 금정점
-          <span></span>
         </h2>
       </div>
       <div class="lang">
@@ -106,16 +105,20 @@
         </div>
       </div>
 
+    <AlramSelector />
+
     <CustomFooter />
   </div>
 </template>
 
 <script>
 import CustomFooter from '@/components/CustomFooter.vue';
+import AlramSelector from '@/components/modal/alramSelector.vue;'
 
 export default {
   components: {
-    CustomFooter,
+    CustomFooter, AlramSelector
+    
   },
   data() {
     return {
